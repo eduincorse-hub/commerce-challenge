@@ -1,0 +1,23 @@
+<section class="login-card">
+  <h2>Iniciar sesión</h2>
+
+  <form (submit)="submit($event)">
+    <label>
+      Usuario
+      <input type="text" autocomplete="username" [value]="username()" (input)="onUsername($event)" />
+    </label>
+
+    <label>
+      Contraseña
+      <input type="password" autocomplete="current-password" [value]="password()" (input)="onPassword($event)" />
+    </label>
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    <button type="submit" [disabled]="loading()">
+      {{ loading() ? 'Ingresando...' : 'Ingresar' }}
+    </button>
+  </form>
+</section>

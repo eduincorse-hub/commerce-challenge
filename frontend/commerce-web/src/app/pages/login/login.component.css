@@ -1,0 +1,5 @@
+.login-card { max-width: 360px; margin: 3rem auto; padding: 1.5rem 2rem; border: 1px solid #ccc; border-radius: 8px; }
+label { display: block; margin-bottom: 1rem; }
+input { display: block; width: 100%; box-sizing: border-box; margin-top: .35rem; padding: 8px; }
+button { width: 100%; padding: 10px; cursor: pointer; }
+.error { color: #b00020; }
