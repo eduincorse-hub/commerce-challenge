@@ -1,10 +1,12 @@
 ﻿using CommerceApi.Models;
 using CommerceApi.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CommerceApi.Controllers;
 
 /// <summary>Endpoints para cargar, procesar y consultar comercios.</summary>
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class CommerceController : ControllerBase
