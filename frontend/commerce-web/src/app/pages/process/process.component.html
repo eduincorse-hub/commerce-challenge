@@ -1,0 +1,21 @@
+<h2>Procesar información</h2>
+<p>Valida los registros cargados para la fecha elegida (columna <code>pc_processdate</code>).</p>
+
+<label>
+  Fecha de proceso
+  <input type="date" [value]="processDate()" (input)="onDateChange($event)" />
+</label>
+
+<button (click)="process()" [disabled]="loading()">
+  {{ loading() ? 'Procesando...' : 'Procesar' }}
+</button>
+
+@if (error()) {
+  <p class="error">{{ error() }}</p>
+}
+
+@if (result() !== null) {
+  <p class="ok">
+    Proceso finalizado. Registros enviados a cuarentena: <strong>{{ result() }}</strong>
+  </p>
+}

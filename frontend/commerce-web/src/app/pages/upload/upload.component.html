@@ -1,0 +1,38 @@
+<h2>Cargar archivo de comercios</h2>
+
+<input type="file" accept=".csv" (change)="onFileSelected($event)" />
+
+@if (error()) {
+  <p class="error">{{ error() }}</p>
+}
+@if (message()) {
+  <p class="ok">{{ message() }}</p>
+}
+
+@if (rows().length > 0) {
+  <h3>Previsualización ({{ rows().length }} registros)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          @for (h of headers(); track $index) {
+            <th>{{ h }}</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of rows(); track $index) {
+          <tr>
+            @for (cell of row; track $index) {
+              <td>{{ cell }}</td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <button (click)="send()" [disabled]="loading()">
+    {{ loading() ? 'Enviando...' : 'Enviar al servidor' }}
+  </button>
+}

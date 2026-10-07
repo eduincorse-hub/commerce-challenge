@@ -1,0 +1,46 @@
+<h2>Registros con errores</h2>
+
+<label>
+  Filtrar por fecha de proceso
+  <input type="date" [value]="filterDate()" (input)="onDateChange($event)" />
+</label>
+<button (click)="load()">Buscar</button>
+<button (click)="clearFilter()">Ver todos</button>
+
+@if (error()) {
+  <p class="error">{{ error() }}</p>
+}
+
+@if (loading()) {
+  <p>Cargando...</p>
+} @else if (rows().length === 0) {
+  <p>No hay registros en cuarentena.</p>
+} @else {
+  <p>{{ rows().length }} registro(s)</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nombre comercial</th>
+          <th>Tipo doc.</th>
+          <th>Número doc.</th>
+          <th>Fecha proceso</th>
+          <th>Motivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (r of rows(); track r.id) {
+          <tr>
+            <td>{{ r.pcCodComercio }}</td>
+            <td>{{ r.pcNomComRed }}</td>
+            <td>{{ r.pcTipDoc }}</td>
+            <td>{{ r.pcNumDoc }}</td>
+            <td>{{ r.pcProcessDate | date: 'yyyy-MM-dd' }}</td>
+            <td class="motivo">{{ r.motivo }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

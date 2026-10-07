@@ -1,0 +1,8 @@
+pc_codcomercio,pc_nomcomred,pc_razonsocial,pc_tipdoc,pc_numdoc,pc_direccion,pc_telefono,pc_email,pc_processdate
+C101,Tienda Sol,Tienda Sol SA,RUC,1790012345001,Av. Central 123,022345678,sol@mail.com,2026-10-07
+C102,,Comercial Luna,RUC,1790099999001,Calle 2,022111111,luna@mail.com,2026-10-07
+C103,Bazar Mar,Bazar Mar SA,CED,17ABC45678,Calle 3,022222222,mar@mail.com,2026-10-07
+C104,Mini Market,Mini Market SA,CED,0102030405,Calle 4,022333333,mini@mail.com,2026-10-07
+C105,Farmacia Vida,Farmacia Vida SA,RUC,1790-555001,Calle 5,022444444,vida@mail.com,2026-10-07
+C106,Ferreteria Norte,Ferreteria Norte SA,RUC,,Av. Norte,022555555,norte@mail.com,2026-10-07
+C107,Panaderia Trigo,Panaderia Trigo SA,CED,1712345678,Calle 7,022666666,trigo@mail.com,2026-10-07
