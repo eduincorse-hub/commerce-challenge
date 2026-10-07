@@ -1,13 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-// ...
+import { AuthService } from './services/auth.service';
 
 @Component({
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   selector: 'app-root',
-  styleUrl: './app.css',
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
+  styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('commerce-web');
+  protected readonly auth = inject(AuthService);
 }

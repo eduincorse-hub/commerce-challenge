@@ -1,10 +1,15 @@
 <header>
   <h1>Gestión de comercios</h1>
-  <nav>
-    <a routerLink="/upload" routerLinkActive="active">Cargar archivo</a>
-    <a routerLink="/process" routerLinkActive="active">Procesar</a>
-    <a routerLink="/errors" routerLinkActive="active">Errores</a>
-  </nav>
+  @if (auth.isLoggedIn()) {
+    <nav>
+      <a routerLink="/upload" routerLinkActive="active">Cargar archivo</a>
+      <a routerLink="/process" routerLinkActive="active">Procesar</a>
+      <a routerLink="/errors" routerLinkActive="active">Errores</a>
+      <span class="spacer"></span>
+      <span class="user">{{ auth.username() }}</span>
+      <button type="button" (click)="auth.logout()">Cerrar sesión</button>
+    </nav>
+  }
 </header>
 
 <main>

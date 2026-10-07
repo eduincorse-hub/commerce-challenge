@@ -1,5 +1,9 @@
 header { background: #1f3a5f; color: #fff; padding: 1rem 2rem; }
 h1 { margin: 0 0 .75rem; font-size: 1.4rem; }
+nav { display: flex; align-items: center; }
 nav a { color: #cfd9e8; margin-right: 1.5rem; text-decoration: none; padding-bottom: 4px; }
 nav a.active { color: #fff; border-bottom: 2px solid #fff; }
+.spacer { flex: 1; }
+.user { margin-right: 1rem; color: #cfd9e8; }
+nav button { padding: 4px 12px; cursor: pointer; }
 main { padding: 1.5rem 2rem; }
