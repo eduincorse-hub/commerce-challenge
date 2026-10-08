@@ -2,6 +2,7 @@
 using CommerceApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using CommerceApi.Exceptions;
 
 namespace CommerceApi.Controllers;
 

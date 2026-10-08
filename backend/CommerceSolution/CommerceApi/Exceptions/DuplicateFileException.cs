@@ -1,4 +1,4 @@
-﻿namespace CommerceApi.Models;
+﻿namespace CommerceApi.Exceptions;
 
 /// <summary>Se lanza cuando el archivo ya fue cargado anteriormente.</summary>
 public class DuplicateFileException : Exception

@@ -1,4 +1,5 @@
-﻿using CommerceApi.Models;
+﻿using CommerceApi.Exceptions;
+using CommerceApi.Models;
 
 namespace CommerceApi.Services;
 

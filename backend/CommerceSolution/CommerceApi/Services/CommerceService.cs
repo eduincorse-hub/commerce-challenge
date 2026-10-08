@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Text.RegularExpressions;
 using CommerceApi.Data;
+using CommerceApi.Exceptions;
 using CommerceApi.Models;
 using CsvHelper;
 using CsvHelper.Configuration;

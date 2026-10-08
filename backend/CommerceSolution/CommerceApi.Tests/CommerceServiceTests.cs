@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using CommerceApi.Data;
+using CommerceApi.Exceptions;
 using CommerceApi.Models;
 using CommerceApi.Services;
 using Microsoft.AspNetCore.Http;

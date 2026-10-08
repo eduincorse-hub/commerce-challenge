@@ -2,6 +2,7 @@
 using CommerceApi.Models;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using CommerceApi.Exceptions;
 
 namespace CommerceApi.Data;
 
