@@ -10,7 +10,7 @@ Aplicación web para cargar archivos CSV de comercios, validarlos y revisar los 
 
 ```
 commerce-challenge/
-├── backend/CommerceSolution/    API REST (.NET 8)
+├── backend/CommerceSolution/    API REST (.NET 8) y pruebas unitarias (CommerceApi.Tests)
 ├── frontend/commerce-web/       Aplicación Angular
 ├── database/                    Scripts SQL Server (ejecutar en orden)
 └── samples/                     CSV de prueba
@@ -41,6 +41,7 @@ Los scripts se pueden ejecutar más de una vez sin perder datos.
 1. Abre `backend/CommerceSolution/CommerceSolution.sln` en Visual Studio.
 2. Revisa la cadena de conexión en `CommerceApi/appsettings.json` (clave `ConnectionStrings:CommerceDb`) y ajústala si tu instancia es distinta.
 3. Ejecuta con **F5**. La API queda en `https://localhost:7030` y Swagger en `https://localhost:7030/swagger`.
+   Desde terminal: `dotnet run --launch-profile https` dentro de `CommerceApi`. Si el navegador no confía en el certificado local, ejecuta una vez `dotnet dev-certs https --trust`.
 
 Al arrancar, la API crea el usuario inicial si la tabla `app_user` está vacía.
 
@@ -100,9 +101,19 @@ Los endpoints de `Commerce` requieren el token JWT.
 ## Decisiones de diseño
 
 - **Capas en el backend:** Controller (HTTP) → Service (validaciones y lectura del CSV) → Repository (SQL Server con Dapper y stored procedures).
+- **Carga y validación separadas:** la carga guarda todas las filas tal como llegan; las reglas se aplican después en `sp_process_commerce`, como pide el enunciado. Así ningún registro se pierde sin quedar registrado con su motivo.
 - **Transacciones:** la carga de un archivo se registra completa o no se registra. El proceso de validación también es transaccional.
 - **Sin duplicados:** la tabla `commerce_file_log` tiene una restricción `UNIQUE` sobre el nombre del archivo, de modo que un mismo CSV no se puede cargar dos veces. Procesar la misma fecha varias veces es seguro.
 - **Estado en el frontend:** *signals* y componentes standalone, con el acceso a la API aislado en servicios (`CommerceService`, `AuthService`), un interceptor HTTP y un guard de rutas.
+
+## Pruebas unitarias
+
+`CommerceApi.Tests` prueba `CommerceService` con **xUnit** y **Moq**. El repositorio se reemplaza por un mock, así que no necesitan SQL Server. Cubren el archivo vacío, el nombre incorrecto, el CSV sin filas y la carga correcta.
+
+```bash
+cd backend/CommerceSolution
+dotnet test
+```
 
 ## Datos de prueba
 
@@ -113,4 +124,4 @@ Los endpoints de `Commerce` requieren el token JWT.
 - Mover la clave JWT y el usuario inicial a variables de entorno o *User Secrets* (en este reto están en `appsettings.json` por simplicidad).
 - Inserción por lotes (por ejemplo `SqlBulkCopy` o un parámetro de tabla) para archivos muy grandes.
 - Gestión de usuarios y roles.
-- Pruebas unitarias del servicio y del frontend.
+- Pruebas de integración del repositorio contra SQL Server y pruebas unitarias del frontend.

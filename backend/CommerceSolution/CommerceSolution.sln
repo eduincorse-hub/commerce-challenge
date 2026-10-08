@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37710.0 d17.14
+VisualStudioVersion = 17.14.37710.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommerceApi", "CommerceApi\CommerceApi.csproj", "{0D2DE2A1-CA0E-4ED6-AA61-55D4D2E23D6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommerceApi.Tests", "CommerceApi.Tests\CommerceApi.Tests.csproj", "{C94AFB98-6B95-4F31-AF00-4AE8FAFC7573}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0D2DE2A1-CA0E-4ED6-AA61-55D4D2E23D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D2DE2A1-CA0E-4ED6-AA61-55D4D2E23D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D2DE2A1-CA0E-4ED6-AA61-55D4D2E23D6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C94AFB98-6B95-4F31-AF00-4AE8FAFC7573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C94AFB98-6B95-4F31-AF00-4AE8FAFC7573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C94AFB98-6B95-4F31-AF00-4AE8FAFC7573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C94AFB98-6B95-4F31-AF00-4AE8FAFC7573}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
